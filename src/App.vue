@@ -10,7 +10,7 @@
       </select>
     </p>
     <ul>
-      <li v-for="cal in this.$parent.calendars" v-bind:key="cal.id">
+      <li v-for="cal in this.$store.state.calendars" v-bind:key="cal.id">
         {{cal.summary}} <button v-on:click="listEvents(cal.id); selected = cal.id">Load</button>
       </li>
     </ul>
@@ -69,7 +69,7 @@ export default {
           }))
         })
         .catch(e => {
-          console.log(e)
+          // TODO: log error
         });
     }
   },
